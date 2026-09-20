@@ -1,0 +1,20 @@
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+.DS_Store
+dist-server/
+coverage/
+test-results/
+playwright-report/
+artifacts/
+base photos/
+reference/
+__pycache__/
+*.log
+.local/
+.release/
+docs/deepseek-vision-check.json
+*.pem
+*.key

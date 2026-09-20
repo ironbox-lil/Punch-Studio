@@ -1,0 +1,58 @@
+{
+  "name": "cyber-punch-studio",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "tsx watch server/index.ts",
+    "build": "npm run typecheck && vite build && esbuild server/index.ts --bundle --platform=node --packages=external --format=esm --outfile=dist-server/index.js",
+    "start": "node dist-server/index.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write src server shared tests scripts/*.mjs *.json *.ts *.js *.html *.md docs/*.md .github/workflows/*.yml",
+    "format:check": "prettier --check src server shared tests scripts/*.mjs *.json *.ts *.js *.html *.md docs/*.md .github/workflows/*.yml",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "check:repo": "node scripts/check-repository.mjs",
+    "package:source": "node scripts/package-source.mjs",
+    "check": "npm run typecheck && npm run lint && npm test && npm run build"
+  },
+  "dependencies": {
+    "@fontsource/dm-sans": "^5.3.0",
+    "@fontsource/space-grotesk": "^5.3.0",
+    "dotenv": "^18.0.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "lucide-react": "^1.47.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "sharp": "^0.35.4",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.63.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/supertest": "^7.2.1",
+    "@vitejs/plugin-react": "^6.1.1",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.11.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "prettier": "^3.9.8",
+    "supertest": "^7.2.2",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.70.0",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.1"
+  }
+}
